@@ -12,7 +12,9 @@ In this concise article, you will discover the steps to effectively utilize hash
 
 ## Implementation
 1. Enable vault database secret engine
+
 `vault secrets enable -path=elasticsearch database`
+
 2. Configure a Vault role that will be used by the elasticsearch secret engine
 ```
 vault write database/roles/internally-defined-role \
@@ -33,7 +35,9 @@ vault write database/config/my-elasticsearch-database \
 ```
 
 4. Generate a new credentials on Elasticsearch by running:
+
 `vault read database/creds/my-role`
 
-Easy, right? :)
+This will generate user credentials on Elasticsearch using the role/permissions that was defined on step #2. The credentials will be automatically revoked once the ttl expires.
 
+Easy, right? :)
