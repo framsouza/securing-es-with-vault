@@ -4,7 +4,7 @@ Are you using Elasticsearch and HashiCorp in your environment and were wondering
 In this concise article, you will discover the steps to effectively utilize hashiCorp Vault for the automated generation and revocation of credentials on Elasticsearch.
 
 ## Demo
-https://github.com/framsouza/securing-es-with-vault/assets/16880741/a2cd77eb-2d21-468a-be58-4e9e7c5b905e
+https://github.com/framsouza/securing-es-with-vault/assets/16880741/f7fd56d4-916f-4278-b913-7860a72bd133
 
 ## Requirements 
 1. Create an account on [Elastic Cloud](https://www.elastic.co/cloud/)
