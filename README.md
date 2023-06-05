@@ -17,7 +17,7 @@ https://github.com/framsouza/securing-es-with-vault/assets/16880741/f7fd56d4-916
 
 2. Configure a Vault role that will be used by the elasticsearch secret engine
 ```
-vault write database/roles/internally-defined-role \
+vault write elasticsearch/roles/internally-defined-role \
       db_name=my-elasticsearch-database \
       creation_statements='{"elasticsearch_role_definition": {"indices": [{"names":["*"], "privileges":["read"]}]}}' \
       default_ttl="1h" \
@@ -26,7 +26,7 @@ vault write database/roles/internally-defined-role \
 
 3. Configure the elasticsearch secret database to connect to your ES deployment
 ```
-vault write database/config/my-elasticsearch-database \
+vault write elasticsearch/config/my-elasticsearch-database \
     plugin_name="elasticsearch-database-plugin" \
     allowed_roles="internally-defined-role" \
     username=vault \
@@ -36,7 +36,7 @@ vault write database/config/my-elasticsearch-database \
 
 4. Generate a new credentials on Elasticsearch by running:
 
-`vault read database/creds/my-role`
+`vault read elasticsearch/creds/my-role`
 
 This will generate user credentials on Elasticsearch using the role/permissions that was defined on step #2. The credentials will be automatically revoked once the ttl expires.
 
